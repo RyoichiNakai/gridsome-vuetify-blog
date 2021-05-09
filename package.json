@@ -1,0 +1,24 @@
+{
+  "name": "elmo-dev",
+  "private": true,
+  "scripts": {
+    "develop": "gridsome develop",
+    "explore": "gridsome explore",
+    "build": "gridsome build"
+  },
+  "dependencies": {
+    "@gridsome/remark-prismjs": "^0.5.0",
+    "@gridsome/vue-remark": "^0.2.6",
+    "gridsome": "^0.7.0"
+  },
+  "devDependencies": {
+    "babel-eslint": "^10.1.0",
+    "eslint": "^7.26.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-gridsome": "^1.6.2",
+    "eslint-plugin-prettier": "^3.4.0",
+    "eslint-plugin-vue": "^7.9.0",
+    "prettier": "^2.2.1",
+    "vue-eslint-parser": "^7.6.0"
+  }
+}
