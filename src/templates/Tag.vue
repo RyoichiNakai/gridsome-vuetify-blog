@@ -1,7 +1,7 @@
 <template>
   <Layout>
     <h1>#{{ $page.tag.title }}の一覧</h1>
-    <article class="blog-article" v-for="tag in $page.tags.belongsTo.edges" :key="tag.node.id">
+    <article class="blog-article" v-for="tag in $page.tag.belongsTo.edges" :key="tag.node.id">
       <h2>{{ tag.node.title }}</h2>
       <div>
         {{ tag.node.description }}
@@ -16,17 +16,17 @@
 </template>
 
 <page-query>
-query Tag($id: ID) {
+query  Tag($id: ID!) {
   tag (id: $id) {
     title
     belongsTo {
       edges {
         node {
-          ... on Post {
+          ... on Article {
             id
             title
             description
-            date (format: "YYYY/MM/DD")
+            date (format: "YYYY-MM-DD")
             path
           }
         }
