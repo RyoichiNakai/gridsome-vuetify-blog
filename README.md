@@ -13,7 +13,7 @@
 
 ## Features
 
-- package.json (一部省略)
+- [package.json (一部省略)](https://github.com/RyoichiNakai/gridsome-vuetify-blog/blob/main/package.json)
 
 ```json:package.json
 {
@@ -43,11 +43,10 @@ yarn add (インストールしたいパッケージ名)
 
 ## URL構成
 
-- gridsome.config.js
+- [gridsome.config.js](https://github.com/RyoichiNakai/gridsome-vuetify-blog/blob/main/gridsome.config.js)
 
 ```javascript:gridsome.config.js
 module.exports = {
-  siteName: 'elmo-dev',
   plugins: [
     {
       use: '@gridsome/source-filesystem',
@@ -65,16 +64,6 @@ module.exports = {
       }
     }
   ],
-  transformers: {
-    //Add markdown support to all file-system sources
-    remark: {
-      externalLinksTarget: '_blank',
-      externalLinksRel: ['nofollow', 'noopener', 'noreferrer'],
-      plugins: [
-        '@gridsome/remark-prismjs'
-      ]
-    }
-  },
   templates: {
     Tag: '/tags/:id'
   }
