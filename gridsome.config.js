@@ -6,28 +6,34 @@
 
 module.exports = {
   siteName: 'elmo-dev',
-  templates: {
-    Tag: "/tags/:id" // タグを使用した時のテンプレートファイル名とURLPath
-  },
   plugins: [
     {
-      use: '@gridsome/vue-remark',
+      use: '@gridsome/source-filesystem',
       options: {
-        typeName: 'Post', // GraphQKスキーマタイプ
-        baseDir: './content/blog', // Markdownファイルの配置場所
-        pathPrefix: '/', // URLPathのPrefix
-        template: './src/templates/Post.vue', // テンプレートファイル名
+        typeName: 'Article', // GraphQKスキーマタイプ
+        baseDir: './content/article', // Markdownファイルの配置場所
+        pathPrefix: '/articles',
+        path: '*.md',
         refs: {
           tags: { // タグを使用する
             typeName: 'Tag',
-            create: true // tagsからタグのコレクションエオ生成
+            create: true // tagsからタグのコレクション名を生成
           }
         }
-      },
-      plugins: [
-        `@gridsome/remark-prismjs`,
-      ],
+      }
     }
-
-  ]
+  ],
+  transformers: {
+    //Add markdown support to all file-system sources
+    remark: {
+      externalLinksTarget: '_blank',
+      externalLinksRel: ['nofollow', 'noopener', 'noreferrer'],
+      plugins: [
+        '@gridsome/remark-prismjs'
+      ]
+    }
+  },
+  templates: {
+    Tag: '/tags/:id'
+  }
 }
