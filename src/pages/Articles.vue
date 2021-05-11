@@ -2,18 +2,18 @@
   <Layout>
     <h1>Blog</h1>
     <p>記事の一覧</p>
-    <article class="blog-article" v-for="post in $page.allPost.edges" :key="post.node.id">
-      <h2>{{ post.node.title }}</h2>
-      <span v-for="tag in post.node.tags" :key="tag.id">
+    <article class="blog-article" v-for="article in $page.allArticle.edges" :key="article.node.id">
+      <h2>{{ article.node.title }}</h2>
+      <span v-for="tag in article.node.tags" :key="tag.id">
         <g-link class="blog-article-glink" :to="tag.path">
           #{{ tag.title }}
         </g-link>
       </span>
       <div>
-        {{ post.node.description }}
+        {{ article.node.description }}
       </div>
       <div>
-        <g-link :to="post.node.path">本文を読む</g-link>
+        <g-link :to="article.node.path">本文を読む</g-link>
       </div>
     </article>
   </Layout>
@@ -21,7 +21,7 @@
 
 <page-query>
   query ($page: Int) {
-    allPost (perPage: 5, page: $page) @paginate {
+    allArticle (perPage: 5, page: $page) @paginate {
       pageInfo {
         totalPages
         currentPage
@@ -31,6 +31,7 @@
           id
           title
           description
+          content
           date (format: "YYYY/MM/DD")
           tags {
             id

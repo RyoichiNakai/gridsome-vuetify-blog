@@ -1,42 +1,42 @@
 <template>
   <Layout>
     <article>
-      <VueRemarkContent />
       <aside>
-        <span v-for="tag in $page.post.tags" :key="tag.id">
+        <span v-for="tag in $page.article.tags" :key="tag.id">
           <g-link class="blog-article-glink" :to="tag.path">
             #{{ tag.title }}
           </g-link>
         </span>
       </aside>
+      <p v-html="$page.article.content" />
     </article>
   </Layout>
 </template>
 
 <page-query>
-  query Post ($id: ID!) {
-    post(id: $id) {
+query Article($path: String) {
+  article (path: $path) {
+    title
+    description
+    content
+    date (format: "YYYY-MM-DD")
+    tags {
+      id
       title
-      description
-      content
       path
-      date (format: "yyyy-MM-dd")
-      tags {
-        id
-        title
-        path
-      }
     }
+    path
   }
+}
 </page-query>
 
 <script>
 export default {
   metaInfo() {
     return {
-      title: this$page.post.title,
+      title: this.$page.article.title,
       meta: [
-        { name: 'description', content: this.$page.post.description }
+        { name: 'description', content: this.$page.article.description }
       ]
     }
   }
