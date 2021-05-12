@@ -16,6 +16,17 @@ Prism.languages.html.graphql = {
 }
 
 module.exports = function (api) {
+
+  api.chainWebpack((config, { isServer }) => {
+    if (isServer) {
+      config.externals([
+        nodeExternals({
+          allowlist: [/^vuetify/]
+        })
+      ])
+    }
+  })
+
   api.loadSource(({ addCollection }) => {
     // Use the Data Store API here: https://gridsome.org/docs/data-store-api/
   })
