@@ -1,7 +1,12 @@
 <template>
-  <div>
+  <v-app>
     <Header :siteName="$static.metadata.siteName" />
-  </div>
+    <v-main>
+      <v-container fluid>
+        <slot />
+      </v-container>
+    </v-main>
+  </v-app>
 </template>
 
 <static-query>
@@ -24,11 +29,5 @@ export default {
 
 
 <style>
-body {
-  font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
-  margin:0;
-  padding:0;
-  line-height: 1.5;
-}
 
 </style>
