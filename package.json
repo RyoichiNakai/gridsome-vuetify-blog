@@ -10,13 +10,14 @@
     "@gridsome/remark-prismjs": "^0.5.0",
     "@gridsome/source-filesystem": "^0.6.2",
     "@gridsome/transformer-remark": "^0.6.4",
-    "@mdi/font": "^4.5.95",
     "gridsome": "^0.7.0",
     "vuetify": "^2.5.0"
   },
   "devDependencies": {
+    "@fortawesome/fontawesome-free": "^5.15.3",
     "@gridsome/plugin-sitemap": "^0.4.0",
     "babel-eslint": "^10.1.0",
+    "css-loader": "^5.2.4",
     "eslint": "^7.26.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-gridsome": "^1.6.2",
