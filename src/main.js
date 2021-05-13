@@ -2,7 +2,8 @@
 // The Client API can be used here. Learn more: gridsome.org/docs/client-api
 
 import Vuetify from "vuetify"
-import "./assets/style/index.scss"
+import 'vuetify/dist/vuetify.min.css';
+import '@fortawesome/fontawesome-free/css/all.css' // Ensure you are using css-loader
 
 import 'prismjs/themes/prism.css'
 import DefaultLayout from '~/layouts/Default.vue'
@@ -17,7 +18,7 @@ export default function (Vue, { router, appOptions, head, isClient }) {
 
   const opts = {
     icons: {
-      iconfont: "mdi",
+      iconfont: "fa",
     },
   };
 
