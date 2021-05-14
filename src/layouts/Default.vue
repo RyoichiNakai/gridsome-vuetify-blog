@@ -3,7 +3,17 @@
     <Header :siteName="$static.metadata.siteName" />
     <v-main>
       <v-container fluid>
-        <slot />
+        <v-row>
+          <v-col
+            cols="12"
+            lg="10"
+            xl="9"
+            class="mx-auto"
+          >
+            <slot />
+          </v-col>
+
+        </v-row>
       </v-container>
     </v-main>
   </v-app>
@@ -18,11 +28,11 @@ query {
 </static-query>
 
 <script>
-import Header from '@/components/Header';
+import Header from '@/components/global/Header';
 export default {
   name: "Default",
   components: {
-    Header
+    Header,
   }
 }
 </script>
