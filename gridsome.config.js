@@ -6,6 +6,7 @@
 
 module.exports = {
   siteName: 'elmo-dev',
+  icon: './assets/site-meta/favicon.png',
   plugins: [
     // @todo;サイトマップの変更
     // {
