@@ -10,16 +10,23 @@
     "@gridsome/remark-prismjs": "^0.5.0",
     "@gridsome/source-filesystem": "^0.6.2",
     "@gridsome/transformer-remark": "^0.6.4",
-    "gridsome": "^0.7.0"
+    "gridsome": "^0.7.0",
+    "vuetify": "^2.5.0"
   },
   "devDependencies": {
+    "@fortawesome/fontawesome-free": "^5.15.3",
+    "@gridsome/plugin-sitemap": "^0.4.0",
     "babel-eslint": "^10.1.0",
+    "css-loader": "^5.2.4",
     "eslint": "^7.26.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-gridsome": "^1.6.2",
     "eslint-plugin-prettier": "^3.4.0",
     "eslint-plugin-vue": "^7.9.0",
     "prettier": "^2.2.1",
-    "vue-eslint-parser": "^7.6.0"
+    "sass": "^1.23.3",
+    "sass-loader": "^8.0.0",
+    "vue-eslint-parser": "^7.6.0",
+    "webpack-node-externals": "^3.0.0"
   }
 }

@@ -6,7 +6,30 @@
 
 module.exports = {
   siteName: 'elmo-dev',
+  icon: './assets/site-meta/favicon.png',
   plugins: [
+    // @todo;サイトマップの変更
+    // {
+    //   use: '@gridsome/plugin-sitemap',
+    //   options: {
+    //     cacheTime: 600000,
+    //     exclude: ['/exclude-me'],
+    //     config: {
+    //       '/blog/*': {
+    //         changefreq: 'weekly',
+    //         priority: 0.5
+    //       },
+    //       '/about': {
+    //         changefreq: 'monthly',
+    //         priority: 0.7
+    //       },
+    //       '/term': {
+    //         changefreq: 'monthly',
+    //         priority: 0.7
+    //       }
+    //     }
+    //   }
+    // },
     {
       use: '@gridsome/source-filesystem',
       options: {

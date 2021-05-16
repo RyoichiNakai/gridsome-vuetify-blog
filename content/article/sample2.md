@@ -1,7 +1,9 @@
 ---
 title: "OSSdsdssds"
 description: "GitHubに落ちているライブラリ。さくっと使えて便利なのですが、ふと「ライセンス」のことも気になったので、調べたことを以下に纏めておこうと思います。"
+category: 'Development'
 tags: ['OSS', 'ライセンス']
+thumbnail: ''
 date: 2020-07-06
 ---
 
