@@ -1,7 +1,22 @@
 <template>
-  <div>
+  <v-app>
     <Header :siteName="$static.metadata.siteName" />
-  </div>
+    <v-main>
+      <v-container fluid>
+        <v-row>
+          <v-col
+            cols="12"
+            lg="10"
+            xl="9"
+            class="mx-auto"
+          >
+            <slot />
+          </v-col>
+
+        </v-row>
+      </v-container>
+    </v-main>
+  </v-app>
 </template>
 
 <static-query>
@@ -13,22 +28,16 @@ query {
 </static-query>
 
 <script>
-import Header from '@/components/Header';
+import Header from '@/components/global/Header';
 export default {
   name: "Default",
   components: {
-    Header
+    Header,
   }
 }
 </script>
 
 
 <style>
-body {
-  font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
-  margin:0;
-  padding:0;
-  line-height: 1.5;
-}
 
 </style>
