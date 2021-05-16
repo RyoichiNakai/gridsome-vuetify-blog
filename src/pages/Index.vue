@@ -9,7 +9,7 @@
         Itemの中身を見る
     </v-btn> -->
     <v-row
-      class="mt-10"
+      class="mt-8"
       no-gutters
     >
       <!-- 最近の投稿 -->
@@ -20,15 +20,11 @@
         xl="9"
       >
         <v-row>
-          <v-col cols="12">
-            <h2>投稿一覧</h2>
-          </v-col>
-        </v-row>
-        <v-row>
           <v-col
             cols="12"
             v-for="item in $page.allArticle.edges.slice(0, 2)"
             :key="item.node.id"
+            sm="6"
             md="6"
             lg="6"
             xl="6"
@@ -42,6 +38,7 @@
             cols="12"
             v-for="item in $page.allArticle.edges.slice(2)"
             :key="item.node.id"
+            sm="6"
             md="6"
             lg="4"
             xl="4"
@@ -57,10 +54,11 @@
       <!-- サイドバー -->
       <v-col
         cols="12"
-        md="4"
-        lg="4"
-        xl="4"
+        md="3"
+        lg="3"
+        xl="3"
       >
+        <Profile/>
       </v-col>
     </v-row>
   </Layout>
@@ -93,11 +91,13 @@
 </page-query>
 
 <script>
-import ArticleItem from "@/components/card/ArticleItem";
+import ArticleItem from "@/components/ArticleItem";
+import Profile from "@/components/sidebar/Profile";
 export default {
   name: "Index",
   components: {
-    ArticleItem
+    ArticleItem,
+    Profile
   },
   metaInfo: {
     title: 'Hello, world!'
