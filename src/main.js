@@ -3,7 +3,6 @@
 
 import Vuetify from "vuetify"
 import 'vuetify/dist/vuetify.min.css';
-import '@fortawesome/fontawesome-free/css/all.css' // Ensure you are using css-loader
 
 import 'prismjs/themes/prism.css'
 import DefaultLayout from '~/layouts/Default.vue'
@@ -14,6 +13,13 @@ export default function (Vue, { router, appOptions, head, isClient }) {
   head.link.push({
     rel: 'stylesheet',
     href: 'https://fonts.googleapis.com/css?family=Roboto'
+  })
+
+  head.link.push({
+    rel: 'stylesheet',
+    href: 'https://use.fontawesome.com/releases/v5.15.3/css/all.css',
+    integrity: 'sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk',
+    crossorigin: 'anonymous'
   })
 
   const opts = {
