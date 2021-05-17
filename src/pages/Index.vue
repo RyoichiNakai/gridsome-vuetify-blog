@@ -15,7 +15,6 @@
       <!-- 最近の投稿 -->
       <v-col
         cols="12"
-        md="9"
         lg="9"
         xl="9"
       >
@@ -54,11 +53,15 @@
       <!-- サイドバー -->
       <v-col
         cols="12"
-        md="3"
         lg="3"
         xl="3"
       >
-        <Profile/>
+        <div class="mt-8 mt-lg-0 ml-10 mr-10 ml-lg-0 mr-10 mr-lg-0">
+          <Profile/>
+        </div>
+        <div class="mt-8 ml-10 mr-10 ml-lg-0 mr-10 mr-lg-0">
+          <Calendar/>
+        </div>
       </v-col>
     </v-row>
   </Layout>
@@ -93,11 +96,14 @@
 <script>
 import ArticleItem from "@/components/ArticleItem";
 import Profile from "@/components/sidebar/Profile";
+import Calendar from "@/components/sidebar/Calendar";
+
 export default {
   name: "Index",
   components: {
     ArticleItem,
-    Profile
+    Profile,
+    Calendar
   },
   metaInfo: {
     title: 'Hello, world!'
