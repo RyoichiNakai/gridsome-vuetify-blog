@@ -6,6 +6,7 @@
 // To restart press CTRL + C in terminal and run `gridsome develop`
 
 const Prism = require(`prismjs`)
+const nodeExternals= require('webpack-node-externals')
 
 // highlight page-query and static-query in html
 Prism.languages.html.graphql = {
@@ -21,7 +22,7 @@ module.exports = function (api) {
     if (isServer) {
       config.externals([
         nodeExternals({
-          allowlist: [/^vuetify/]
+          allowlist: [/\.css$/, /^vuetify/]
         })
       ])
     }

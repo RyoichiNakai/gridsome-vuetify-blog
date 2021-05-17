@@ -25,7 +25,6 @@
     "vuetify": "^2.5.0"
   },
   "devDependencies": {
-    "@fortawesome/fontawesome-free": "^5.15.3",
     "@gridsome/plugin-sitemap": "^0.4.0",
     "babel-eslint": "^10.1.0",
     "css-loader": "^5.2.4",
@@ -42,6 +41,9 @@
   }
 }
 ```
+
+- その他
+  - Font Awesome5(CDNで利用)
 
 - packageのインストール
 
