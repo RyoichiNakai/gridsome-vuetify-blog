@@ -56,10 +56,10 @@
         lg="3"
         xl="3"
       >
-        <div class="mt-8 mt-lg-0 ml-10 mr-10 ml-lg-0 mr-10 mr-lg-0">
+        <div class="mt-8 mt-lg-0 ml-16 mr-16 ml-lg-0 mr-lg-0">
           <Profile/>
         </div>
-        <div class="mt-8 ml-10 mr-10 ml-lg-0 mr-10 mr-lg-0">
+        <div class="mt-8 ml-16 mr-16 ml-lg-0 mr-lg-0">
           <Calendar/>
         </div>
       </v-col>
