@@ -32,15 +32,31 @@
               </v-icon>
             </v-btn>
             <v-spacer/>
-            <v-btn
-              fab
-              icon
-              small
+            <v-menu
+              v-model="menu"
+              :close-on-content-click="false"
             >
-              <v-icon>
-                far fa-calendar-alt
-              </v-icon>
-            </v-btn>
+              <template v-slot:activator="{ on }">
+                <v-btn
+                  fab
+                  icon
+                  small
+                  v-on="on"
+                >
+                  <v-icon>
+                    far fa-calendar-alt
+                  </v-icon>
+                </v-btn>
+              </template>
+              <v-date-picker
+                v-model="picker"
+                @click="menu = false"
+                no-title
+                scrollable
+                type="month"
+              />
+            </v-menu>
+
             <v-btn
               fab
               icon
@@ -127,6 +143,7 @@
   export default {
     name: 'Calendar',
     data: () => ({
+      menu: false,
       focus: '',
       selectedEvent: {},
       selectedElement: null,
@@ -148,6 +165,18 @@
     mounted () {
       this.$refs.calendar.checkChange();
       this.focus = this.formatDate(new Date());
+    },
+    computed: {
+      picker: {
+        get() {
+          return this.value;
+        },
+        set(val) {
+          this.menu = false;
+          val += '-01';
+          this.focus = val;
+        }
+      }
     },
     methods: {
       setDate ({ date }) {
