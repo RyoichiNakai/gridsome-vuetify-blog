@@ -1,5 +1,5 @@
 <template>
-  <v-card class="pa-2">
+  <v-card class="pa-4">
     <v-row>
       <v-col>
         <v-sheet height="64">
@@ -53,6 +53,7 @@
                 @click="menu = false"
                 no-title
                 scrollable
+                locale="ja-jp"
                 type="month"
               />
             </v-menu>
@@ -69,7 +70,7 @@
             </v-btn>
           </v-toolbar>
         </v-sheet>
-        <v-sheet height="380">
+        <v-sheet height="350">
           <v-calendar
             ref="calendar"
             v-model="focus"
@@ -81,7 +82,7 @@
             @click:date="setDate"
           >
             <template v-slot:day="{ past, date }">
-              <v-row justify="center" style="margin-top: 2px">
+              <v-row justify="center" style="margin-top: 0px">
                 <v-avatar
                   v-if="past && tracked.includes(date)"
                   color="indigo"
@@ -92,47 +93,6 @@
               </v-row>
             </template>
           </v-calendar>
-          <v-menu
-            v-model="selectedOpen"
-            :close-on-content-click="false"
-            :activator="selectedElement"
-            offset-x
-          >
-            <v-card
-              color="grey lighten-4"
-              min-width="350px"
-              flat
-            >
-              <v-toolbar
-                :color="selectedEvent.color"
-                dark
-              >
-                <v-btn icon>
-                  <v-icon></v-icon>
-                </v-btn>
-                <v-toolbar-title v-html="selectedEvent.name"></v-toolbar-title>
-                <v-spacer></v-spacer>
-                <v-btn icon>
-                  <v-icon>mdi-heart</v-icon>
-                </v-btn>
-                <v-btn icon>
-                  <v-icon>mdi-dots-vertical</v-icon>
-                </v-btn>
-              </v-toolbar>
-              <v-card-text>
-                <span v-html="selectedEvent.details"></span>
-              </v-card-text>
-              <v-card-actions>
-                <v-btn
-                  text
-                  color="secondary"
-                  @click="selectedOpen = false"
-                >
-                  Cancel
-                </v-btn>
-              </v-card-actions>
-            </v-card>
-          </v-menu>
         </v-sheet>
       </v-col>
     </v-row>
@@ -142,29 +102,25 @@
 <script>
   export default {
     name: 'Calendar',
+    props: {
+      items: Array
+    },
     data: () => ({
       menu: false,
       focus: '',
       selectedEvent: {},
       selectedElement: null,
       selectedOpen: false,
-      tracked: [
-        '2021-05-18',
-        '2021-05-08',
-        '2021-05-07',
-        '2021-05-06',
-        '2021-05-05',
-        '2021-05-04',
-        '2021-05-03',
-        '2021-05-02',
-        '2021-05-01',
-      ],
+      tracked: [],
       colors: ['#1867c0', '#fb8c00', '#000000'],
       category: ['Development', 'Meetings', 'Slacking'],
     }),
     mounted () {
       this.$refs.calendar.checkChange();
       this.focus = this.formatDate(new Date());
+      for (const index in this.items) {
+        this.tracked.push(this.items[index].node.date)
+      }
     },
     computed: {
       picker: {
@@ -181,7 +137,6 @@
     methods: {
       setDate ({ date }) {
         this.focus = date;
-        console.log(date);
       },
       setToday () {
         this.focus = this.formatDate(new Date());

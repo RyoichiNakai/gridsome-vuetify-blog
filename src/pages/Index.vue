@@ -21,7 +21,7 @@
         <v-row>
           <v-col
             cols="12"
-            v-for="item in $page.allArticle.edges.slice(0, 2)"
+            v-for="item in $page.allArticlePerPage.edges.slice(0, 2)"
             :key="item.node.id"
             sm="6"
             md="6"
@@ -35,7 +35,7 @@
           </v-col>
           <v-col
             cols="12"
-            v-for="item in $page.allArticle.edges.slice(2)"
+            v-for="item in $page.allArticlePerPage.edges.slice(2)"
             :key="item.node.id"
             sm="6"
             md="6"
@@ -57,10 +57,11 @@
         xl="3"
       >
         <div class="mt-8 mt-lg-0 ml-16 mr-16 ml-lg-0 mr-lg-0">
-          <Profile/>
+          <Profile />
         </div>
         <div class="mt-8 ml-16 mr-16 ml-lg-0 mr-lg-0">
-          <Calendar/>
+          <Calendar :items="$page.allArticle.edges"/>
+          <!-- 現状はallArticlesを渡しておくことにする、あとで全ページに渡せるように設定 -->
         </div>
       </v-col>
     </v-row>
@@ -69,7 +70,14 @@
 
 <page-query>
   query ($page: Int) {
-    allArticle (perPage: 5, page: $page) @paginate {
+    allArticle: allArticle {
+      edges {
+        node {
+          date (format: "YYYY-MM-DD")
+        }
+      }
+    }
+    allArticlePerPage: allArticle (perPage: 5, page: $page) @paginate {
       pageInfo {
         totalPages
         currentPage

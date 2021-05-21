@@ -4,7 +4,7 @@ description: "GitHubに落ちているライブラリ。さくっと使えて便
 category: 'Development'
 tags: ['OSS', 'ライセンス']
 thumbnail: ''
-date: 2020-07-06
+date: 2021-05-01
 ---
 
 ## OSSのライセンスについて少し調べてみた

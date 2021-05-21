@@ -48,9 +48,6 @@ export default {
   name: "ArticleItem",
   props: {
     item: Object
-  },
-  mounted: function(){
-    console.log(this.item)
   }
 }
 </script>
