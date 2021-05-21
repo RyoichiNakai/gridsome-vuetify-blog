@@ -6,8 +6,8 @@
         <v-row>
           <v-col
             cols="12"
-            lg="10"
-            xl="9"
+            lg="11"
+            xl="10"
             class="mx-auto"
           >
             <slot />

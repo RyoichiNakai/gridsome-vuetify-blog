@@ -1,10 +1,10 @@
 ---
-title: "OSSdsdssds"
+title: "OSSのライセンスについて少し調べてみた"
 description: "GitHubに落ちているライブラリ。さくっと使えて便利なのですが、ふと「ライセンス」のことも気になったので、調べたことを以下に纏めておこうと思います。"
 category: 'Development'
 tags: ['OSS', 'ライセンス']
 thumbnail: ''
-date: 2021-05-02
+date: 2021-05-06
 ---
 
 ## OSSのライセンスについて少し調べてみた
