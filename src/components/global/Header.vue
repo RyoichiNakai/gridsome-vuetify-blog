@@ -10,17 +10,12 @@
       {{ siteName }}
     </v-toolbar-title>
     <v-spacer />
-    <v-btn icon>
-      <v-icon>fab fa-facebook-square</v-icon>
-    </v-btn>
-    <v-btn icon>
-      <v-icon>fab fa-linkedin</v-icon>
-    </v-btn>
-    <v-btn icon>
-      <v-icon>fab fa-twitter-square</v-icon>
-    </v-btn>
-    <v-btn icon>
-      <v-icon>fab fa-github-square</v-icon>
+    <v-btn 
+      icon
+      v-for="icon in icons"
+      :key="icon"
+    >
+      <v-icon>{{ icon }}</v-icon>
     </v-btn>
     <template v-slot:extension>
       <v-tabs>
@@ -44,6 +39,14 @@ export default {
   props: {
     siteName: String
   },
+  data: () => ({
+    icons: [
+      'fab fa-facebook-square',
+      'fab fa-linkedin',
+      'fab fa-twitter-square',
+      'fab fa-github-square'
+    ]
+  })
 }
 </script>
 
