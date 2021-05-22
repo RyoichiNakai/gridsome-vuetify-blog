@@ -48,6 +48,14 @@
             />
           </v-col>
         </v-row>
+        <v-row justify="center" class="mt-8">
+          <Pager
+            linkClass="v-btn mx-2 v-pagination__item primary"
+            :info="$page.allArticlePerPage.pageInfo"
+            :showNavigation="false"
+            showLinks
+          />
+        </v-row>
       </v-col>
 
       <!-- サイドバー -->
@@ -105,13 +113,15 @@
 import ArticleItem from "@/components/ArticleItem";
 import Profile from "@/components/sidebar/Profile";
 import Calendar from "@/components/sidebar/Calendar";
+import { Pager } from "gridsome"
 
 export default {
   name: "Index",
   components: {
     ArticleItem,
     Profile,
-    Calendar
+    Calendar,
+    Pager
   },
   metaInfo: {
     title: 'Hello, world!'
