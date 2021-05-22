@@ -17,9 +17,7 @@ export default function (Vue, { router, appOptions, head, isClient }) {
 
   head.link.push({
     rel: 'stylesheet',
-    href: 'https://use.fontawesome.com/releases/v5.15.3/css/all.css',
-    integrity: 'sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk',
-    crossorigin: 'anonymous'
+    href: 'https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.6.3/css/all.min.css',
   })
 
   const opts = {

@@ -1,5 +1,5 @@
 <template>
-  <v-card class="mt-8 mt-md-0">
+  <v-card>
     <v-container>
       <v-row
         justify="center"

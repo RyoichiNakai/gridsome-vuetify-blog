@@ -15,14 +15,13 @@
       <!-- 最近の投稿 -->
       <v-col
         cols="12"
-        md="9"
         lg="9"
         xl="9"
       >
         <v-row>
           <v-col
             cols="12"
-            v-for="item in $page.allArticle.edges.slice(0, 2)"
+            v-for="item in $page.allArticlePerPage.edges.slice(0, 2)"
             :key="item.node.id"
             sm="6"
             md="6"
@@ -36,7 +35,7 @@
           </v-col>
           <v-col
             cols="12"
-            v-for="item in $page.allArticle.edges.slice(2)"
+            v-for="item in $page.allArticlePerPage.edges.slice(2)"
             :key="item.node.id"
             sm="6"
             md="6"
@@ -49,16 +48,29 @@
             />
           </v-col>
         </v-row>
+        <v-row justify="center" class="mt-8">
+          <Pager
+            linkClass="v-btn mx-2 v-pagination__item primary"
+            :info="$page.allArticlePerPage.pageInfo"
+            :showNavigation="false"
+            showLinks
+          />
+        </v-row>
       </v-col>
 
       <!-- サイドバー -->
       <v-col
         cols="12"
-        md="3"
         lg="3"
         xl="3"
       >
-        <Profile/>
+        <div class="mt-8 mt-lg-0 ml-16 mr-16 ml-lg-0 mr-lg-0">
+          <Profile />
+        </div>
+        <div class="mt-8 ml-16 mr-16 ml-lg-0 mr-lg-0">
+          <Calendar :items="$page.allArticle.edges"/>
+          <!-- 現状はallArticlesを渡しておくことにする、あとで全ページに渡せるように設定 -->
+        </div>
       </v-col>
     </v-row>
   </Layout>
@@ -66,7 +78,14 @@
 
 <page-query>
   query ($page: Int) {
-    allArticle (perPage: 5, page: $page) @paginate {
+    allArticle: allArticle {
+      edges {
+        node {
+          date (format: "YYYY-MM-DD")
+        }
+      }
+    }
+    allArticlePerPage: allArticle (perPage: 5, page: $page) @paginate {
       pageInfo {
         totalPages
         currentPage
@@ -93,11 +112,16 @@
 <script>
 import ArticleItem from "@/components/ArticleItem";
 import Profile from "@/components/sidebar/Profile";
+import Calendar from "@/components/sidebar/Calendar";
+import { Pager } from "gridsome"
+
 export default {
   name: "Index",
   components: {
     ArticleItem,
-    Profile
+    Profile,
+    Calendar,
+    Pager
   },
   metaInfo: {
     title: 'Hello, world!'
