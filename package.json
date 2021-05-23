@@ -10,7 +10,10 @@
     "@gridsome/remark-prismjs": "^0.5.0",
     "@gridsome/source-filesystem": "^0.6.2",
     "@gridsome/transformer-remark": "^0.6.4",
+    "@gridsome/vue-remark": "^0.2.6",
     "gridsome": "^0.7.0",
+    "gridsome-plugin-remark-linkcard": "github:colus-img/gridsome-plugin-remark-linkcard",
+    "gridsome-plugin-remark-prismjs-all": "^0.4.8",
     "vuetify": "^2.5.0"
   },
   "devDependencies": {
@@ -28,6 +31,7 @@
     "sass-loader": "7.3.1",
     "v-calendar": "^2.3.0",
     "vue-eslint-parser": "^7.6.0",
+    "vue-loader": "^15.9.7",
     "webpack-node-externals": "^3.0.0"
   }
 }

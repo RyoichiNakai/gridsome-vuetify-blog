@@ -42,7 +42,16 @@ module.exports = {
             typeName: 'Tag',
             create: true // tagsからタグのコレクション名を生成
           }
-        }
+        },
+      }
+    },
+    {
+      use: '@gridsome/source-filesystem',
+      options: {
+        typeName: 'About', // GraphQKスキーマタイプ
+        baseDir: './content/about', // Markdownファイルの配置場所
+        pathPrefix: '/',
+        path: '*.md',
       }
     }
   ],
@@ -52,7 +61,9 @@ module.exports = {
       externalLinksTarget: '_blank',
       externalLinksRel: ['nofollow', 'noopener', 'noreferrer'],
       plugins: [
-        '@gridsome/remark-prismjs'
+        ['gridsome-plugin-remark-prismjs-all', {
+          showLineNumbers: true
+        }]
       ]
     }
   },

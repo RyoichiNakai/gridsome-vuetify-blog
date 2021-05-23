@@ -25,9 +25,6 @@
         <v-tab to="/about">
           About
         </v-tab>
-        <v-tab to="/articles/">
-          Article
-        </v-tab>
       </v-tabs>
     </template>
   </v-app-bar>
