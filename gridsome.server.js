@@ -22,7 +22,7 @@ module.exports = function (api) {
     if (isServer) {
       config.externals([
         nodeExternals({
-          allowlist: [/\.css$/, /^vuetify/]
+          whitelist: [/\.css$/, /^vuetify/]
         })
       ])
     }

@@ -4,7 +4,8 @@
 import Vuetify from "vuetify"
 import 'vuetify/dist/vuetify.min.css';
 
-import 'prismjs/themes/prism.css'
+import 'gridsome-plugin-remark-prismjs-all/themes/night-owl.css'
+import 'prismjs/plugins/line-numbers/prism-line-numbers.css'
 import DefaultLayout from '~/layouts/Default.vue'
 
 export default function (Vue, { router, appOptions, head, isClient }) {
