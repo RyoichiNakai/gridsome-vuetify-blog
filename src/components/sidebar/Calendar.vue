@@ -111,9 +111,7 @@
       selectedEvent: {},
       selectedElement: null,
       selectedOpen: false,
-      tracked: [],
-      colors: ['#1867c0', '#fb8c00', '#000000'],
-      category: ['Development', 'Meetings', 'Slacking'],
+      tracked: []
     }),
     mounted () {
       this.$refs.calendar.checkChange();

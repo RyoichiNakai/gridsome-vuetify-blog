@@ -7,6 +7,7 @@
 
 const Prism = require(`prismjs`)
 const nodeExternals = require('webpack-node-externals')
+const DOMParser = require('universal-dom-parser')
 
 // highlight page-query and static-query in html
 Prism.languages.html.graphql = {
@@ -22,7 +23,7 @@ module.exports = function (api) {
     if (isServer) {
       config.externals([
         nodeExternals({
-          whitelist: [/\.css$/, /^vuetify/]
+          allowlist: [/\.css$/, /^vuetify/]
         })
       ])
     }
